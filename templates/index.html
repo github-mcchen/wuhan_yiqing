@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+
+    <title>疫情地图</title>
+
+    <!--web fonts-->
+    <link href="https://fonts.proxy.ustclug.org/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.proxy.ustclug.org/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <!--bootstrap styles-->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--icon font-->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--jquery ui-->
+    <link href="/static/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+
+    <!--custom styles-->
+    <link href="/static/css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/static/vendor/html5shiv.js"></script>
+    <script src="/static/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="fixed-nav top-nav">
+
+    <!--header-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light" id="mainNav">
+        <div class="box-container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!--brand name-->
+                <a class="navbar-brand navbar-hide-responsive" href="#">
+                    <!-- <img class="pr-3 float-left" src="/static/img/logo-icon.png" srcset="assets/img/logo-icon@2x.png 2x"  alt=""/> -->
+                    <div class="float-left">
+                        <div>
+                            <H1>2020新型肺炎疫情地图(全国、湖北、浙江、广东、河南.....)</H1>
+                        </div>
+                    </div>
+                </a>
+                <!--/brand name-->
+            </div>
+        </div>
+    </nav>
+
+
+    <!--main content wrapper-->
+    <div class="content-wrapper" style="padding-top: 0px;">
+
+        <div class="box-container">
+            <div class="container-fluid">
+
+                <!--sales statistical overview-->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card card-shadow mb-4">
+                            <div class="card-header border-0">
+                                <div class="custom-title-wrap bar-info">
+                                    <div class="custom-title">
+                                        <H3>疫情地图</H3>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- body china -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="china_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="china_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="china_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="china_bar" class="chart-container" style="width:355px; height:900px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+                            <!-- body hubei -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="hubei_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="hubei_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="hubei_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="hubei_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>		
+                            <!-- body zhejiang -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="zhejiang_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="zhejiang_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="zhejiang_map" class="chart-container"
+                                            style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="zhejiang_bar" class="chart-container"
+                                            style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+                            <!-- body guangdong -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="guangdong_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="guangdong_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="guangdong_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="guangdong_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body henan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="henan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="henan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="henan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="henan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body hunan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="hunan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="hunan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="hunan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="hunan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+
+							<!-- body jiangxi -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="jiangxi_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="jiangxi_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="jiangxi_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="jiangxi_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body anhui -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="anhui_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="anhui_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="anhui_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="anhui_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body chongqing -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="chongqing_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="chongqing_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="chongqing_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="chongqing_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body jiangsu -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="jiangsu_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="jiangsu_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="jiangsu_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="jiangsu_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>					
+							<!-- body shandong -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="shandong_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="shandong_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="shandong_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="shandong_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>					
+							<!-- body sichuan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="sichuan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="sichuan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="sichuan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="sichuan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>				
+							<!-- body beijing -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="beijing_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="beijing_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="beijing_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="beijing_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>											
+							<!-- body shanghai -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="shanghai_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="shanghai_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="shanghai_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="shanghai_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body heilongjiang -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="heilongjiang_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="heilongjiang_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="heilongjiang_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="heilongjiang_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+                            <!-- body fujian -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="fujian_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="fujian_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="fujian_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="fujian_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+							<!-- body shanxi1 -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="shanxi1_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="shanxi1_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="shanxi1_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="shanxi1_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>					
+							<!-- body guangxi -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="guangxi_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="guangxi_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="guangxi_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="guangxi_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>			
+                            <!-- body hebei -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="hebei_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="hebei_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="hebei_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="hebei_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body yunnan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="yunnan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="yunnan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="yunnan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="yunnan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+							<!-- body hainan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="hainan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="hainan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="hainan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="hainan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>				
+							<!-- body shanxi -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="shanxi_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="shanxi_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="shanxi_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="shanxi_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body liaoning -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="liaoning_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="liaoning_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="liaoning_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="liaoning_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+							<!-- body tianjin -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="tianjin_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="tianjin_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="tianjin_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="tianjin_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>					
+							<!-- body guizhou -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="guizhou_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="guizhou_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="guizhou_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="guizhou_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+							<!-- body gansu -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="gansu_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="gansu_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="gansu_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="gansu_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>							
+							<!-- body jilin -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="jilin_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="jilin_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="jilin_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="jilin_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body neimenggu -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="neimenggu_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="neimenggu_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="neimenggu_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="neimenggu_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body ningxia -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="ningxia_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="ningxia_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="ningxia_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="ningxia_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body xinjiang -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="xinjiang_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="xinjiang_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="xinjiang_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="xinjiang_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body xianggang -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="xianggang_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="xianggang_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="xianggang_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="xianggang_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body qinghai -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="qinghai_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="qinghai_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="qinghai_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="qinghai_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>						
+							<!-- body taiwan -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="taiwan_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="taiwan_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="taiwan_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="taiwan_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>									
+							<!-- body aomen -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="aomen_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="aomen_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="aomen_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="aomen_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>
+							<!-- body xizang -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3">
+                                        <ul class="list-unstyled mt-1" id="xizang_overview">
+                                        </ul>
+
+                                        <ul class="list-unstyled base-timeline" id="xizang_news">
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div id="xizang_map" class="chart-container" style="width:360px; height:640px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div id="xizang_bar" class="chart-container" style="width:355px; height:640px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr />
+                            </div>														
+                            <!-- 扩展省份 start-->
+                            <!-- 复制上面 body 省份内容到此中间改 domid即可,记得引入相关地图 -->
+                            <!-- 扩展省份 end-->
+                        </div>
+                    </div>
+
+                </div>
+                <!--/sales statistical overview-->
+
+            </div>
+        </div>
+    </div>
+    <!--/main content wrapper-->
+
+    <!--footer-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                数据来源自丁香园,如若出现统计错误,敬请告知
+            </div>
+            <p class="copyright1" style="text-align: center;">Copyright © 2020 <a
+                    href="https://ahusmart.com"><strong>多媒体通信实验室 </strong></a> <a
+                    href="https://git.ahusmart.com/fangkai/ncov"><strong>Gitlab </strong></a> <a
+                    href="https://github.com/hack-fang/nCov.git"><strong>Github </strong></a>All Rights Reserved.
+        </div>
+    </footer>
+    <!--/footer-->
+
+    <!--basic scripts-->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/static/vendor/modernizr.js"></script>
+    <![endif]-->
+
+    <!-- echarts -->
+    <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+    <!-- 地图 -->
+    <script type="text/javascript" src="/static/vendor/map/china.js"></script>
+    <script type="text/javascript" src="/static/vendor/map/hubei.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/zhejiang.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/guangdong.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/henan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/hunan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/jiangxi.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/anhui.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/chongqing.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/jiangsu.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/shandong.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/sichuan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/beijing.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/shanghai.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/heilongjiang.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/fujian.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/shanxi1.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/guangxi.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/hebei.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/yunnan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/hainan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/shanxi.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/liaoning.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/tianjin.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/guizhou.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/gansu.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/jilin.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/neimenggu.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/ningxia.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/xinjiang.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/xianggang.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/qinghai.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/taiwan.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/aomen.js"></script>
+	<script type="text/javascript" src="/static/vendor/map/xizang.js"></script>
+    <!-- 更新脚本 -->
+    <script type="text/javascript" src="/static/js/update.js"></script>
+</body>
+
+</html>

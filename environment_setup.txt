@@ -1,0 +1,29 @@
+部署：
+1. 创建系统服务
+vi /usr/lib/systemd/system/robot.service
+
+内容：
+[Unit]
+Description=robot
+ 
+[Service]
+Type=forking
+ExecStart=/usr/bin/python /home/myftp/git_project/wuhan2020/nCov/app.py &
+Restart=always
+[Install]
+WantedBy=multi-user.target
+ 
+[Install]
+WantedBy=multi-user.target
+
+2. 启用自定义系统服务
+systemctl enable robot
+
+3. 启动服务
+systemctl start robo
+
+4. 查看服务是否启动
+ps aux|grep robot
+
+
+参考链接：https://www.cnblogs.com/grimm/p/11104562.html
